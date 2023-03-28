@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/EHRExtract" />
+  <name value="EHRExtract" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Composition">
+      <path value="Composition" />
+      <comment value="meta.source and meta.versionId should be constrained to represent rm_id attribute from ISO13606" />
+    </element>
+    <element id="Composition.extension">
+      <path value="Composition.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Composition.extension:access_policy_id">
+      <path value="Composition.extension" />
+      <sliceName value="access_policy_id" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://example.org/fhir/StructureDefinition/AccessPolicyId" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Composition.identifier.use">
+      <path value="Composition.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="Composition.identifier.type">
+      <path value="Composition.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="Composition.identifier.system">
+      <path value="Composition.identifier.system" />
+      <short value="ISO13606 ehr_system attribute" />
+      <definition value="The identity of the EHR Provider system from which this EHR Extract has been created. This property identifies the system, and not the provider as a legal entity, as some providers might have more than one system e.g. if they run more than one non-connected site." />
+      <min value="1" />
+    </element>
+    <element id="Composition.identifier.value">
+      <path value="Composition.identifier.value" />
+      <short value="ISO13606 ehr_id attribute" />
+      <definition value="The identity of the EHR from which this EHR Extract has been created. It shall be unique for that EHR Provider system." />
+      <min value="1" />
+    </element>
+    <element id="Composition.identifier.period">
+      <path value="Composition.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="Composition.identifier.assigner">
+      <path value="Composition.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="Composition.status">
+      <path value="Composition.status" />
+      <definition value="There is no attribute containing this information in ISO13606. It is left to 'unknown'" />
+      <fixedCode value="unknown" />
+    </element>
+    <element id="Composition.type">
+      <path value="Composition.type" />
+      <fixedCodeableConcept>
+        <text value="ISO13606 EHRExtract" />
+      </fixedCodeableConcept>
+    </element>
+    <element id="Composition.category">
+      <path value="Composition.category" />
+      <max value="0" />
+    </element>
+    <element id="Composition.subject">
+      <path value="Composition.subject" />
+      <short value="ISO13606 subject_of_care attribute" />
+    </element>
+    <element id="Composition.encounter">
+      <path value="Composition.encounter" />
+      <max value="0" />
+    </element>
+    <element id="Composition.date">
+      <path value="Composition.date" />
+      <short value="ISO13606 time_created attribute" />
+      <definition value="The date and time at which data from this subject of care’s EHR was queried or exported in order to create this EHR Extract." />
+    </element>
+    <element id="Composition.author">
+      <path value="Composition.author" />
+      <short value="ISO13606 ehr_system" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+    </element>
+    <element id="Composition.author.reference">
+      <path value="Composition.author.reference" />
+      <short value="This is the reference to the Device created from the system as the author of the ISO13606 EHRExtract" />
+    </element>
+    <element id="Composition.title">
+      <path value="Composition.title" />
+      <fixedString value="EHRExtract" />
+    </element>
+    <element id="Composition.confidentiality">
+      <path value="Composition.confidentiality" />
+      <max value="0" />
+    </element>
+    <element id="Composition.attester">
+      <path value="Composition.attester" />
+      <short value="ISO13606 authorising_party attribute" />
+      <definition value="Agent authorising the EHR Extract to be created and communicated. This attribute is optional since some extracts might be created automatically between (authorised) interacting computing services." />
+      <max value="1" />
+    </element>
+    <element id="Composition.attester.mode">
+      <path value="Composition.attester.mode" />
+      <fixedCode value="professional" />
+    </element>
+    <element id="Composition.attester.time">
+      <path value="Composition.attester.time" />
+      <max value="0" />
+    </element>
+    <element id="Composition.attester.party">
+      <path value="Composition.attester.party" />
+      <short value="ISO13606 authorising_party attribute" />
+      <definition value="Agent authorising the EHR Extract to be created and communicated. This attribute is optional since some extracts might be created automatically between (authorised) interacting computing services." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+    </element>
+    <element id="Composition.custodian">
+      <path value="Composition.custodian" />
+      <max value="0" />
+    </element>
+    <element id="Composition.relatesTo">
+      <path value="Composition.relatesTo" />
+      <max value="0" />
+    </element>
+    <element id="Composition.event">
+      <path value="Composition.event" />
+      <max value="0" />
+    </element>
+    <element id="Composition.section">
+      <path value="Composition.section" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
