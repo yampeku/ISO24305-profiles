@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/Folder" />
+  <name value="Folder" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Composition">
+      <path value="Composition" />
+      <short value="An ISO13606 Folder" />
+      <definition value="Structure component used for creating hierarchical structures within an EHR extract and with compositions as leaf nodes. The FOLDER class may be used to organize and group COMPOSITIONs within an EHR_EXTRACT. This hierarchy might correspond to or resemble the high-level organization of the EHR within the EHR Provider system, or have been created specifically for this EHR_EXTRACT" />
+    </element>
+    <element id="Composition.meta">
+      <path value="Composition.meta" />
+    </element>
+    <element id="Composition.meta.versionId">
+      <path value="Composition.meta.versionId" />
+      <min value="1" />
+    </element>
+    <element id="Composition.meta.source">
+      <path value="Composition.meta.source" />
+      <short value="Identifies the source archetype_id+archetype_node_id from ISO13606 EHRExtract" />
+      <definition value="An URI could be built from the archetype_id + archetype_node_id to populate Resource.meta.source uri" />
+      <min value="1" />
+    </element>
+    <element id="Composition.status">
+      <path value="Composition.status" />
+      <definition value="There is no attribute containing this information in ISO13606. It is left to 'unknown'" />
+      <fixedCode value="unknown" />
+    </element>
+    <element id="Composition.type">
+      <path value="Composition.type" />
+      <fixedCodeableConcept>
+        <text value="ISO13606 Folder" />
+      </fixedCodeableConcept>
+    </element>
+    <element id="Composition.category">
+      <path value="Composition.category" />
+      <max value="0" />
+    </element>
+    <element id="Composition.subject">
+      <path value="Composition.subject" />
+      <short value="ISO13606 subject_of_care attribute" />
+      <definition value="Unique identifier of the subject of care which the healthcare information in that FOLDER instance relates to." />
+    </element>
+    <element id="Composition.encounter">
+      <path value="Composition.encounter" />
+      <max value="0" />
+    </element>
+    <element id="Composition.date">
+      <path value="Composition.date" />
+      <definition value="There is no attribute containing this information in ISO13606." />
+    </element>
+    <element id="Composition.author">
+      <path value="Composition.author" />
+      <definition value="There is no attribute containing this information in ISO13606." />
+    </element>
+    <element id="Composition.title">
+      <path value="Composition.title" />
+      <fixedString value="Folder" />
+    </element>
+    <element id="Composition.confidentiality">
+      <path value="Composition.confidentiality" />
+      <max value="0" />
+    </element>
+    <element id="Composition.custodian">
+      <path value="Composition.custodian" />
+      <max value="0" />
+    </element>
+    <element id="Composition.relatesTo">
+      <path value="Composition.relatesTo" />
+      <max value="0" />
+    </element>
+    <element id="Composition.event">
+      <path value="Composition.event" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

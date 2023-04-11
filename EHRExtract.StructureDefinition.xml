@@ -10,9 +10,20 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
   <derivation value="constraint" />
   <differential>
-    <element id="Composition">
-      <path value="Composition" />
-      <comment value="meta.source and meta.versionId should be constrained to represent rm_id attribute from ISO13606" />
+    <element id="Composition.meta">
+      <path value="Composition.meta" />
+      <definition value="meta.source and meta.versionId should be constrained to represent rm_id attribute from ISO13606" />
+      <min value="1" />
+    </element>
+    <element id="Composition.meta.versionId">
+      <path value="Composition.meta.versionId" />
+      <min value="1" />
+    </element>
+    <element id="Composition.meta.source">
+      <path value="Composition.meta.source" />
+      <short value="Identifies the source archetype_id+archetype_node_id from ISO13606 EHRExtract" />
+      <definition value="An URI could be built from the archetype_id + archetype_node_id to populate Resource.meta.source uri" />
+      <min value="1" />
     </element>
     <element id="Composition.extension">
       <path value="Composition.extension" />
@@ -29,7 +40,6 @@
       <path value="Composition.extension" />
       <sliceName value="access_policy_id" />
       <min value="0" />
-      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="https://example.org/fhir/StructureDefinition/AccessPolicyId" />
