@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/Composition" />
+  <name value="Composition" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Composition.contained">
+      <path value="Composition.contained" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="meta.profile" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="content" />
+      <definition value="ISO13606 content attribute" />
+    </element>
+    <element id="Composition.contained:entry">
+      <path value="Composition.contained" />
+      <sliceName value="entry" />
+      <short value="Entry" />
+      <definition value="ISO13606 Entry class" />
+    </element>
+    <element id="Composition.contained:section">
+      <path value="Composition.contained" />
+      <sliceName value="section" />
+      <short value="section" />
+      <definition value="ISO13606 Section class" />
+    </element>
+    <element id="Composition.extension">
+      <path value="Composition.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Composition.extension:feederAudit">
+      <path value="Composition.extension" />
+      <sliceName value="feederAudit" />
+      <short value="AuditInfo" />
+      <definition value="ISO13606 Audit info inside of feeder_audit attribtute" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://example.org/fhir/StructureDefinition/AuditInfo" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Composition.extension:policyIds">
+      <path value="Composition.extension" />
+      <sliceName value="policyIds" />
+      <short value="policy ids" />
+      <definition value="ISO13606 policy_ids attribute pointing to the corresponding Provenance resource with the corresponding policy" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://example.org/fhir/StructureDefinition/PolicyIds" />
+      </type>
+      <isModifier value="false" />
+    </element>
+    <element id="Composition.author">
+      <path value="Composition.author" />
+      <short value="composer" />
+      <definition value="ISO13606 composer attribute." />
+      <comment value="ISO13606 composer is optional (0..1)" />
+      <max value="1" />
+    </element>
+    <element id="Composition.confidentiality">
+      <path value="Composition.confidentiality" />
+      <short value="sensitivity" />
+      <definition value="ISO13606 sensitivity attribute" />
+    </element>
+  </differential>
+</StructureDefinition>

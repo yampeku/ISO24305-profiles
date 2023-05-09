@@ -28,6 +28,38 @@
       <definition value="An URI could be built from the archetype_id + archetype_node_id to populate Resource.meta.source uri" />
       <min value="1" />
     </element>
+    <element id="Composition.contained">
+      <path value="Composition.contained" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="meta.profile" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="compositions, sub-folders" />
+      <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope. Compositions and sub-folders included inside of a Folder do not have an independent existence so 'contained' attribute is used for grouping them" />
+      <min value="1" />
+    </element>
+    <element id="Composition.contained:compositions">
+      <path value="Composition.contained" />
+      <sliceName value="compositions" />
+      <short value="compositions" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://example.org/fhir/StructureDefinition/Composition" />
+      </type>
+    </element>
+    <element id="Composition.contained:sub_folders">
+      <path value="Composition.contained" />
+      <sliceName value="sub_folders" />
+      <short value="sub_folders" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://example.org/fhir/StructureDefinition/Folder" />
+      </type>
+    </element>
     <element id="Composition.status">
       <path value="Composition.status" />
       <definition value="There is no attribute containing this information in ISO13606. It is left to 'unknown'" />

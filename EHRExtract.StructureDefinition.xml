@@ -25,6 +25,43 @@
       <definition value="An URI could be built from the archetype_id + archetype_node_id to populate Resource.meta.source uri" />
       <min value="1" />
     </element>
+    <element id="Composition.contained">
+      <path value="Composition.contained" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="meta.profile" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Composition.contained:compositions">
+      <path value="Composition.contained" />
+      <sliceName value="compositions" />
+      <short value="compositions" />
+      <min value="1" />
+    </element>
+    <element id="Composition.contained:sub_folders">
+      <path value="Composition.contained" />
+      <sliceName value="sub_folders" />
+      <short value="sub_folders" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://example.org/fhir/StructureDefinition/Folder" />
+      </type>
+    </element>
+    <element id="Composition.contained:sub_folders.contained">
+      <path value="Composition.contained.contained" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="meta.profile" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
     <element id="Composition.extension">
       <path value="Composition.extension" />
       <slicing>
