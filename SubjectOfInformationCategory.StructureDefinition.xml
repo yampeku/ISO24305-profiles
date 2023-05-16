@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/SubjectOfInformationCategory" />
+  <name value="SubjectOfInformationCategory" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="extension" />
+    <expression value="StructureDefinition" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://example.org/fhir/StructureDefinition/SubjectOfInformationCategory" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <short value="Subject Of Information Category" />
+      <definition value="Reference to Provenance resource containing information about the subject of information category" />
+      <type>
+        <code value="Reference" />
+      </type>
+    </element>
+    <element id="Extension.value[x].type">
+      <path value="Extension.value[x].type" />
+      <fixedUri value="Provenance" />
+    </element>
+  </differential>
+</StructureDefinition>

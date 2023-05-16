@@ -33,6 +33,18 @@
       <sliceName value="section" />
       <short value="section" />
       <definition value="ISO13606 Section class" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://example.org/fhir/StructureDefinition/Section" />
+      </type>
+    </element>
+    <element id="Composition.contained:section.contained">
+      <path value="Composition.contained.contained" />
+    </element>
+    <element id="Composition.contained:section.contained:entry">
+      <path value="Composition.contained.contained" />
+      <sliceName value="entry" />
+      <comment value="This must contain Entry-like FHIR Resources or Profiles" />
     </element>
     <element id="Composition.extension">
       <path value="Composition.extension" />
@@ -82,6 +94,28 @@
       <path value="Composition.confidentiality" />
       <short value="sensitivity" />
       <definition value="ISO13606 sensitivity attribute" />
+    </element>
+    <element id="Composition.section.entry">
+      <path value="Composition.section.entry" />
+      <type>
+        <code value="Reference" />
+        <profile value="https://example.org/fhir/StructureDefinition/Section" />
+      </type>
+    </element>
+    <element id="Composition.section.entry.contained">
+      <path value="Composition.section.entry.contained" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="meta.profile" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section.entry.contained:entry">
+      <path value="Composition.section.entry.contained" />
+      <sliceName value="entry" />
+      <comment value="This must point to Entry-like FHIR Resources or Profiles. If no subject-like attribute is available on the Resource or Profile, the subjectOfInformationCategory extension should be used to provide this information. Available Resources such as Observation, MedicationAdministration, or AllergyIntolerance have attributes sutiable to store subject of information category contents. Check https://www.hl7.org/fhir/fivews.html for a comprehensive list of the Resources that contain information about 'subject'. If no information provider-like attribute is available on the Resource or Profile, the InformationProvider extension should be used to provide this information. Available Resources such as MedicationStatement has attributes suitable to store information provider contents. Check https://www.hl7.org/fhir/fivews.html for a comprehensive list of the Resources that contain information about 'source'." />
     </element>
   </differential>
 </StructureDefinition>

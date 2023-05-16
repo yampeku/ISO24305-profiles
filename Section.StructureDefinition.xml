@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/Section" />
+  <name value="Section" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Composition.contained">
+      <path value="Composition.contained" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="meta.profile" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="ISO13606 members attribute" />
+    </element>
+    <element id="Composition.contained:entry">
+      <path value="Composition.contained" />
+      <sliceName value="entry" />
+      <definition value="ISO13606 Entry" />
+    </element>
+    <element id="Composition.contained:section">
+      <path value="Composition.contained" />
+      <sliceName value="section" />
+      <definition value="ISO13606 Section" />
+    </element>
+  </differential>
+</StructureDefinition>
