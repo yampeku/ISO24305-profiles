@@ -24,7 +24,7 @@
     <element id="Composition.contained:entry">
       <path value="Composition.contained" />
       <sliceName value="entry" />
-      <definition value="ISO13606 Entry" />
+      <definition value="ISO13606 Entry. Choose a specific “type of Entry” resource in FHIR (such as Observation, AllergyIntolerance, Condition, etc.). By category, these Resources include the clinical resources and base resources related to individuals and entities. Any included resource or profile could contain the SubjectOfInformationCategory extension. Preferably, resources should also include information about the information provider. See https://www.hl7.org/fhir/fivews.html &quot;source&quot; column" />
     </element>
     <element id="Composition.contained:section">
       <path value="Composition.contained" />
