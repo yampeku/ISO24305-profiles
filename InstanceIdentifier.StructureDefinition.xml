@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/InstanceIdentifier" />
+  <name value="InstanceIdentifier" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="Identifier" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Identifier" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Identifier.use">
+      <path value="Identifier.use" />
+      <comment value="It is proposed to add 'use' attribute in ISO13606 Instance Identifier" />
+    </element>
+    <element id="Identifier.type">
+      <path value="Identifier.type" />
+      <comment value="It is proposed to add 'type' attribute in ISO13606 Instance Identifier" />
+    </element>
+    <element id="Identifier.system">
+      <path value="Identifier.system" />
+      <short value="Use it to store Root attribute from ISO13606 Instance Identifier" />
+      <min value="1" />
+    </element>
+    <element id="Identifier.value">
+      <path value="Identifier.value" />
+      <short value="Use it to store Extension attribute from ISO13606 Instance Identifier" />
+    </element>
+    <element id="Identifier.period">
+      <path value="Identifier.period" />
+      <comment value="It is proposed to add 'period' attribute in ISO13606 Instance Identifier" />
+    </element>
+    <element id="Identifier.assigner">
+      <path value="Identifier.assigner" />
+      <comment value="It is proposed to add 'assigner' attribute in ISO13606 Instance Identifier" />
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/Attachment" />
+  <name value="Attachment" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="Attachment" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Attachment" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Attachment.contentType">
+      <path value="Attachment.contentType" />
+      <definition value="Use it to store 'media_type' attribute from ISO13606 Attachment" />
+    </element>
+    <element id="Attachment.language">
+      <path value="Attachment.language" />
+      <comment value="It is proposed to add 'language' attribute in ISO13606 Attachment" />
+    </element>
+    <element id="Attachment.data">
+      <path value="Attachment.data" />
+      <definition value="Use it to store 'value' attribute from ISO13606 Attachment" />
+    </element>
+    <element id="Attachment.url">
+      <path value="Attachment.url" />
+      <definition value="Use it to store 'reference' attribute from ISO13606 Attachment" />
+    </element>
+    <element id="Attachment.size">
+      <path value="Attachment.size" />
+      <comment value="Can be calculated from source ISO13606 Attachment. It is proposed to add 'size' attribute in ISO13606 Attachment" />
+    </element>
+    <element id="Attachment.hash">
+      <path value="Attachment.hash" />
+      <definition value="Use it to store 'integrity_check' attribute from ISO13606 Attachment" />
+      <comment value="FHIR allows SHA-1, 13606 allows SHA-1 and SHA-256.  IF SHA-256, the hash needs to be recalculated as SHA-1." />
+    </element>
+    <element id="Attachment.title">
+      <path value="Attachment.title" />
+      <definition value="Use it to store 'description' attribute from ISO13606 Attachment" />
+    </element>
+    <element id="Attachment.creation">
+      <path value="Attachment.creation" />
+      <comment value="This information may be lost when mapping ISO13606 Attachment" />
+    </element>
+  </differential>
+</StructureDefinition>

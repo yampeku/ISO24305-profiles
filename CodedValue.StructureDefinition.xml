@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/Coded_value" />
+  <name value="Coded_value" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="CodeableConcept" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CodeableConcept" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="CodeableConcept.coding">
+      <path value="CodeableConcept.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="CodeableConcept.coding.system">
+      <path value="CodeableConcept.coding.system" />
+      <short value="code_system attribute in ISO13606 Code_Value" />
+      <min value="1" />
+    </element>
+    <element id="CodeableConcept.coding.version">
+      <path value="CodeableConcept.coding.version" />
+      <max value="0" />
+    </element>
+    <element id="CodeableConcept.coding.code">
+      <path value="CodeableConcept.coding.code" />
+      <short value="code attribute in ISO13606 Code_Value" />
+      <min value="1" />
+    </element>
+    <element id="CodeableConcept.coding.display">
+      <path value="CodeableConcept.coding.display" />
+      <short value="display_name attribute in ISO13606 Code_Value" />
+    </element>
+    <element id="CodeableConcept.coding.userSelected">
+      <path value="CodeableConcept.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="CodeableConcept.text">
+      <path value="CodeableConcept.text" />
+      <short value="text attribute in ISO13606 Code_Value" />
+    </element>
+  </differential>
+</StructureDefinition>

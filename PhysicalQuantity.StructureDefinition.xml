@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://example.org/fhir/StructureDefinition/PhysicalQuantity" />
+  <name value="PhysicalQuantity" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="Quantity" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Quantity" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Quantity.value">
+      <path value="Quantity.value" />
+      <short value="value attribute in ISO13606 Physical Quantity" />
+      <min value="1" />
+    </element>
+    <element id="Quantity.comparator">
+      <path value="Quantity.comparator" />
+      <max value="0" />
+    </element>
+    <element id="Quantity.unit">
+      <path value="Quantity.unit" />
+      <max value="0" />
+    </element>
+    <element id="Quantity.system">
+      <path value="Quantity.system" />
+      <max value="0" />
+    </element>
+    <element id="Quantity.code">
+      <path value="Quantity.code" />
+      <short value="unit attribute in ISO13606 Physical Quantity" />
+      <min value="1" />
+    </element>
+  </differential>
+</StructureDefinition>
