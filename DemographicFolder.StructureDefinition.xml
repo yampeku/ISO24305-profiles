@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <url value="https://example.org/fhir/StructureDefinition/Folder" />
-  <name value="Folder" />
+  <url value="https://example.org/fhir/StructureDefinition/DemographicFolder" />
+  <name value="DemographicFolder" />
   <status value="draft" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <url value="https://example.org/fhir/StructureDefinition/EHRExtract" />
-  <name value="EHRExtract" />
+  <url value="https://example.org/fhir/StructureDefinition/DemographicExtract" />
+  <name value="DemographicExtract" />
   <status value="draft" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
@@ -41,50 +41,6 @@
       <sliceName value="compositions" />
       <short value="compositions" />
       <min value="1" />
-      <type>
-        <code value="Resource" />
-        <profile value="https://example.org/fhir/StructureDefinition/Composition" />
-      </type>
-    </element>
-    <element id="Composition.contained:compositions.contained">
-      <path value="Composition.contained.contained" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="meta.profile" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Composition.contained:compositions.contained:section">
-      <path value="Composition.contained.contained" />
-      <sliceName value="section" />
-    </element>
-    <element id="Composition.contained:compositions.contained:section.contained">
-      <path value="Composition.contained.contained.contained" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="meta.profile" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Composition.contained:compositions.section">
-      <path value="Composition.contained.section" />
-    </element>
-    <element id="Composition.contained:compositions.section.entry">
-      <path value="Composition.contained.section.entry" />
-    </element>
-    <element id="Composition.contained:compositions.section.entry.contained">
-      <path value="Composition.contained.section.entry.contained" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="meta.profile" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Composition.contained:sub_folders">
       <path value="Composition.contained" />
@@ -94,92 +50,6 @@
         <code value="Resource" />
         <profile value="https://example.org/fhir/StructureDefinition/Folder" />
       </type>
-    </element>
-    <element id="Composition.contained:demographics">
-      <path value="Composition.contained" />
-      <sliceName value="demographics" />
-      <short value="demographics" />
-      <max value="1" />
-      <type>
-        <code value="Resource" />
-        <profile value="https://example.org/fhir/StructureDefinition/DemographicFolder" />
-      </type>
-    </element>
-    <element id="Composition.contained:demographics.contained">
-      <path value="Composition.contained.contained" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="meta.profile" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Composition.contained:demographics.contained:compositions">
-      <path value="Composition.contained.contained" />
-      <sliceName value="compositions" />
-    </element>
-    <element id="Composition.contained:demographics.contained:compositions.contained">
-      <path value="Composition.contained.contained.contained" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="meta.profile" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Composition.contained:demographics.contained:compositions.contained:section">
-      <path value="Composition.contained.contained.contained" />
-      <sliceName value="section" />
-    </element>
-    <element id="Composition.contained:demographics.contained:compositions.contained:section.contained">
-      <path value="Composition.contained.contained.contained.contained" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="meta.profile" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Composition.contained:demographics.contained:compositions.section">
-      <path value="Composition.contained.contained.section" />
-    </element>
-    <element id="Composition.contained:demographics.contained:compositions.section.entry">
-      <path value="Composition.contained.contained.section.entry" />
-    </element>
-    <element id="Composition.contained:demographics.contained:compositions.section.entry.contained">
-      <path value="Composition.contained.contained.section.entry.contained" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="meta.profile" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Composition.extension">
-      <path value="Composition.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="0" />
-    </element>
-    <element id="Composition.extension:access_policy_id">
-      <path value="Composition.extension" />
-      <sliceName value="access_policy_id" />
-      <min value="0" />
-      <type>
-        <code value="Extension" />
-        <profile value="https://example.org/fhir/StructureDefinition/AccessPolicyId" />
-      </type>
-      <isModifier value="false" />
     </element>
     <element id="Composition.identifier.use">
       <path value="Composition.identifier.use" />
@@ -193,12 +63,6 @@
       <path value="Composition.identifier.system" />
       <short value="ISO13606 ehr_system attribute" />
       <definition value="The identity of the EHR Provider system from which this EHR Extract has been created. This property identifies the system, and not the provider as a legal entity, as some providers might have more than one system e.g. if they run more than one non-connected site." />
-      <min value="1" />
-    </element>
-    <element id="Composition.identifier.value">
-      <path value="Composition.identifier.value" />
-      <short value="ISO13606 ehr_id attribute" />
-      <definition value="The identity of the EHR from which this EHR Extract has been created. It shall be unique for that EHR Provider system." />
       <min value="1" />
     </element>
     <element id="Composition.identifier.period">
